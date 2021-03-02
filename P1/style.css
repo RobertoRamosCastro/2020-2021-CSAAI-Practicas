@@ -1,10 +1,10 @@
-/* Estilo cuerpo */
+/* Estilo cuerpo hecho*/
 body{
     background-image: url(campo.jpg);
-    background-size: 1920px 1550px;
+    background-size: 1920px 1650px;
   }
 
-/* Estilo titulo h1 */
+/* Estilo titulo h1 hecho*/
 h1 {
     border: solid;
     color: white;
@@ -13,7 +13,7 @@ h1 {
     border-color:black;
     }
 
-/* Estilo titulo h2 */
+/* Estilo titulo h2 hecho*/
 h2 {
     font-family: fantasy;
     text-align: center;
@@ -47,7 +47,7 @@ li {
     font-size: x-large;
     }
 
-/* Estilo y posición gif */
+/* Estilo y posición gif hecho*/
 .gif{
     position: absolute;
     left:900px;
