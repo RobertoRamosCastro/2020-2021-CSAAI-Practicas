@@ -9,7 +9,6 @@ div {
     border-color: darkgreen;
     margin: 25px;
     background-color:rgb(180, 180, 180);
-    font-family: cursive;
     }
 
 .gif{
@@ -21,6 +20,7 @@ h2{
     text-align: center;
     border: solid;
     color: black;
+
     }
 
 li{
@@ -29,7 +29,8 @@ li{
     }
 
 .parrafo{
-    
+    font-family: cursive;
+    font-size: large;
 }
 
   <h2>Botones</h2>
