@@ -9,6 +9,7 @@ div {
     border-color: darkgreen;
     margin: 25px;
     background-color:rgb(180, 180, 180);
+    font-size: large;
     }
 
 .gif{
@@ -17,6 +18,7 @@ div {
     }
 
 h2{
+    font-family: fantasy;
     text-align: center;
     border: solid;
     color: black;
@@ -24,13 +26,20 @@ h2{
     }
 
 li{
-    font-family: "Segoe IU", sans-serif;
+    font-family: cursive;
     font-size: x-large;
+
     }
 
 .parrafo{
     font-family: cursive;
-    font-size: large;
+}
+
+.tabla{
+    
+    font-family: cursive;
+    font-size: x-large;
+    padding-right: 0px;
 }
 
   <h2>Botones</h2>
