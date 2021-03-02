@@ -10,10 +10,28 @@ body {
     color: black;
     border-color: darkgreen;
     margin: 30px;
-    background-color: lightgreen;
+    background-color:rgb(180, 180, 180);
   }
 
   .gif{
     position: absolute;
     left:900px;
   }
+
+  <h2>Botones</h2>
+    <button>Botón 2</button>
+
+    <div>
+        Bloque 1
+        <div>
+            Bloque 1.1
+        </div>
+    </div>
+    <div>
+        Bloque 2
+        <span>(Inline 1)</span>
+        <span>(Inline 2)</span>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=4Jos_lMPDxU"><button>Baptistao</button></a>
+    <p>Imagen creada por mi</p>
