@@ -1,6 +1,6 @@
 body {
     background-image: url(campo.jpg);
-    background-size: 1920px 1320px;
+    background-size: 1920px 1550px;
   }
 
 div {
@@ -39,7 +39,6 @@ li{
     
     font-family: cursive;
     font-size: x-large;
-    padding-right: 0px;
 }
 
   <h2>Botones</h2>
