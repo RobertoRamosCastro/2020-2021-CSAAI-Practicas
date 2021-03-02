@@ -1,7 +1,15 @@
-body {
+body{
     background-image: url(campo.jpg);
     background-size: 1920px 1550px;
   }
+
+h1 {
+    border: solid;
+    color: white;
+    font-style:italic;
+    background-color: black;
+    border-color:black;
+    }
 
 div {
     border: solid;
@@ -17,15 +25,14 @@ div {
     left:900px;
     }
 
-h2{
+h2 {
     font-family: fantasy;
     text-align: center;
-    border: solid;
+    border: seashell;
     color: black;
-
     }
 
-li{
+li {
     font-family: cursive;
     font-size: x-large;
 
@@ -36,13 +43,7 @@ li{
 }
 
 .tabla{
-    
     font-family: cursive;
     font-size: x-large;
 }
 
-
-  <h2>Botones</h2>
-    <button>Botón 2</button>
-    <a href="https://www.youtube.com/watch?v=4Jos_lMPDxU"><button>Baptistao</button></a>
-    <p>Imagen creada por mi</p>
