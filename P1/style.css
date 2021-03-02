@@ -1,49 +1,55 @@
+/* Estilo cuerpo */
 body{
     background-image: url(campo.jpg);
     background-size: 1920px 1550px;
   }
 
+/* Estilo titulo h1 */
 h1 {
     border: solid;
     color: white;
-    font-style:italic;
+    font-style: italic;
     background-color: black;
     border-color:black;
     }
 
+/* Estilo titulo h2 */
+h2 {
+    font-family: fantasy;
+    text-align: center;
+    border: solid;
+    border-color:black;
+    }
+
+/* Estilo parrafos(p)*/
+.parrafo{
+    font-family: cursive;
+    }
+
+/* Estilo div's */    
 div {
     border: solid;
-    color: black;
     border-color: darkgreen;
     margin: 25px;
     background-color:rgb(180, 180, 180);
     font-size: large;
     }
 
+/* Estilo listas no ordenadas */
+li {
+    font-family: cursive;
+    font-size: x-large;
+    }
+
+/* Estilo tabla final */
+.tabla{
+    font-family: cursive;
+    font-size: x-large;
+    }
+
+/* Estilo y posición gif */
 .gif{
     position: absolute;
     left:900px;
     }
-
-h2 {
-    font-family: fantasy;
-    text-align: center;
-    border: seashell;
-    color: black;
-    }
-
-li {
-    font-family: cursive;
-    font-size: x-large;
-
-    }
-
-.parrafo{
-    font-family: cursive;
-}
-
-.tabla{
-    font-family: cursive;
-    font-size: x-large;
-}
 
