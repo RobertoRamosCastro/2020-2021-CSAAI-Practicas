@@ -23,13 +23,13 @@ const test1 = document.getElementById('test1')
 //-- pulsación de botón
 // mismo ejemplo que si pusieramos function()
 // pero asi nos ahorramos escribir function
-test.onclick = () => {
+test.onclick = function() {
   console.log("Click sobre el párrafo...")
 }
 
 //-- Configurar el manejador para el evento de
 //-- pulsación de botón
-test2.onclick = () => {
+test2.onclick = function() {
   console.log("Click sobre el párrafo 2...")
 
   //-- Cambiar su texto
