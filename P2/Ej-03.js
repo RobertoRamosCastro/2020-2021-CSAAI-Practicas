@@ -13,7 +13,7 @@ window.alert("Hola ventana emergente")
 console.log("Ejecutando js...")
 
 //-- Leer el párrafo identificado como test
-const test = document.getElementById('test').onclick = console.log("Click sobre el párrafo...")
+const test = document.getElementById('test')
 //-- Leer el elemento párrafo test2
 const test2 = document.getElementById('test2')
 //-- Obtener el elemento párrafo 1 para modificarlo
