@@ -1,21 +1,40 @@
-// codigo generico para que cada vez que pulsamos "digito" se ejecute esto
 console.log("Ejecutando JS...");
 
-const botones = document.getElementsByClassName("digito")
 
-//-- Función de retrollamada de los botones
-//-- botones de la clase dígito
-function digito(value) // unica funcion de retrollamada
-{
-  console.log("Valor: " + value);
+//-- Elementos de la interfaz de la calculadora
+display = document.getElementById("display")
+boton1 = document.getElementById("boton1")
+boton2 = document.getElementById("boton2")
+suma = document.getElementById("suma")
+igual = document.getElementById("igual")
+clear = document.getElementById("clear")
+
+//-- Funciones de retrollamada de los botones
+//-- Cada vez que se aprieta un boton se actua
+//-- sobre la cadena: añadiendo digito, operador +
+//-- poniendo a cero o evaluando la expresión
+
+// -- Insertar digito 1
+boton1.onclick = () => {
+  display.innerHTML += "1";
 }
 
-for (let boton of botones) {
+//-- Insertar digito 2
+boton2.onclick = () => {
+  display.innerHTML += "2";
+}
 
-  //-- Establecer la funcion de llamada del boton i
-  //-- El parámetro ev.target contiene el boton
-  //-- que ha recibido el click
-  boton.onclick = (ev) => {
-    digito(ev.target.value)
-  }
+//-- Insertar simbolo de sumar
+suma.onclick = () => {
+  display.innerHTML += "+";
+}
+
+//-- Evaluar la expresion
+igual.onclick = () => {
+  display.innerHTML = eval(display.innerHTML);
+}
+
+//-- Poner a cero la expresion
+clear.onclick = () => {
+  display.innerHTML = "0";
 }
