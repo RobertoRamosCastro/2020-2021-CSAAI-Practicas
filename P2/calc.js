@@ -5,19 +5,26 @@ console.log("Ejecutando JS...");
 //-- a otro objeto
 const gui = {
   display: document.getElementById("display"),
-  boton: document.getElementById("boton"),
+  boton_inc: document.getElementById("boton_inc"),
+  boton_dec: document.getElementById("boton_dec")
 }
 
 //-- Objeto contador: Contiene el valor y el método para incrementarse
 const counter = {
   valor: 0,
-  inc : function(value) { 
-    this.valor += value; // se incrementa el value que le demos
-    gui.display.innerHTML = this.valor; // me lo actualizas en el display
-  } // con esto hemos definido un obeto con metodo, accion y valor del contador
+  inc : function(value) {
+    this.valor += value;
+    gui.display.innerHTML = this.valor;
+  }
 }
 
-//-- Acciones: Ligar el boton al contador
-gui.boton.onclick = () => { 
-  counter.inc(1) // llamamos al metodo inc del objeto contador
+//-------- Accciones:
+//-- Incrementar contador
+gui.boton_inc.onclick = () => {
+  counter.inc(1);
+}
+
+//-- Decrementar contador
+gui.boton_dec.onclick = () =>{
+  counter.inc(-1);
 }
