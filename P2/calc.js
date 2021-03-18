@@ -1,10 +1,11 @@
+// codigo generico para que cada vez que pulsamos "digito" se ejecute esto
 console.log("Ejecutando JS...");
 
 const botones = document.getElementsByClassName("digito")
 
 //-- Función de retrollamada de los botones
 //-- botones de la clase dígito
-function digito(value)
+function digito(value) // unica funcion de retrollamada
 {
   console.log("Valor: " + value);
 }
