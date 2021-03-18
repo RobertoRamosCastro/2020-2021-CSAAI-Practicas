@@ -43,8 +43,6 @@ const gui = {
   boton_dec2: document.getElementById("boton_dec2"),
 }
 
-
-
 //-- Crear los dos objetos contadores
 const c1 = new counter(gui.display1);
 const c2 = new counter(gui.display2);
