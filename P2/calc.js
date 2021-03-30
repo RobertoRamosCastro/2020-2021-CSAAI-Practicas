@@ -1,19 +1,39 @@
 console.log("Ejecutando JS...");
 
 
-//-- Elementos de la interfaz de la calculadora
+// botones de la calcu
 display = document.getElementById("display")
-boton1 = document.getElementById("boton1")
-boton2 = document.getElementById("boton2")
 suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
-
-// Crea un array con todos los tipos de digitos
+borrar = document.getElementById("borrar");
+// array con los tipos de digitos
 let digitos = document.getElementsByClassName("cdigito");
-console.log(digitos)
-// Crea un array con todos los tipos de operaciones
+// array con los tipos de operaciones
 let operaciones = document.getElementsByClassName("operador");
+
+// estados calcu
+const ESTADO = {
+  INIT: 0,
+  OP1: 1,
+  OPERATION: 2,
+  OP2_INIT: 3,
+  OP2: 4
+};
+
+// este bucle lee cada digito que se pulsa del array de arriba, dentro lleva la funcion de los digitos
+for(i = 0; i < digitos.length; i++){
+  digitos[i].onclick = (ev) =>{
+    valor(ev.target);
+  }
+}
+
+// bucle identico para las operaciones dentro lleva la funcion de las operaciones
+for(i=0; i<operacion.length; i++){
+  operacion[i].onclick=(ev)=>{
+    operacion(ev.target);
+  }
+}
 
 // Funciones de retrollamada de los botones
 // Cada vez que se aprieta un boton se actua
@@ -43,9 +63,5 @@ igual.onclick = () => {
 // Poner a cero la expresion
 clear.onclick = () => {
   display.innerHTML = "0";
-}
-
-// Poner a cero la expresion
-clear.onclick = () => {
-  display.innerHTML = "0";
+  estado = ESTADO.INIT;
 }
