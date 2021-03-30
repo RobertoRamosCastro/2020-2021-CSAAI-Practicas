@@ -9,6 +9,12 @@ suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 
+// Crea un array con todos los tipos de digitos
+let digitos = document.getElementsByClassName("cdigito");
+console.log(digitos)
+// Crea un array con todos los tipos de operaciones
+let operaciones = document.getElementsByClassName("operador");
+
 // Funciones de retrollamada de los botones
 // Cada vez que se aprieta un boton se actua
 // sobre la cadena: añadiendo digito, operador +
