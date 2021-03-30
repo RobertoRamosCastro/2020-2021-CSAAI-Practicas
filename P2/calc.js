@@ -9,32 +9,37 @@ suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 
-//-- Funciones de retrollamada de los botones
-//-- Cada vez que se aprieta un boton se actua
-//-- sobre la cadena: añadiendo digito, operador +
-//-- poniendo a cero o evaluando la expresión
+// Funciones de retrollamada de los botones
+// Cada vez que se aprieta un boton se actua
+// sobre la cadena: añadiendo digito, operador +
+// poniendo a cero o evaluando la expresión
 
-// -- Insertar digito 1
+// Insertar digito 1
 boton1.onclick = () => {
   display.innerHTML += "1";
 }
 
-//-- Insertar digito 2
+// Insertar digito 2
 boton2.onclick = () => {
   display.innerHTML += "2";
 }
 
-//-- Insertar simbolo de sumar
+// Insertar simbolo de sumar
 suma.onclick = () => {
   display.innerHTML += "+";
 }
 
-//-- Evaluar la expresion
+// Evaluar la expresion
 igual.onclick = () => {
   display.innerHTML = eval(display.innerHTML);
 }
 
-//-- Poner a cero la expresion
+// Poner a cero la expresion
+clear.onclick = () => {
+  display.innerHTML = "0";
+}
+
+// Poner a cero la expresion
 clear.onclick = () => {
   display.innerHTML = "0";
 }
