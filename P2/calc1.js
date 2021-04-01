@@ -18,9 +18,9 @@ let op = document.getElementsByClassName("op");
 function operador(boton)
 {
   if (display.innerHTML=="0") {
-    display.innerHTML = boton.value;
+    display.innerHTML = boton.op;
   }else {
-    display.innerHTML += boton.value;
+    display.innerHTML += boton.op;
   }
 }
 
