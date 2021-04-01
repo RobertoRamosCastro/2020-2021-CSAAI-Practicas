@@ -12,6 +12,7 @@ del =  document.getElementById("botonDELl")
 ac = document.getElementById("botonAC")
 dot = document.getElementById("dot")
 result = document.getElementById("result")
+
 // array con los tipos de digitos
 let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
@@ -45,20 +46,31 @@ for(i=0; i<op.length; i++){
 // sobre la cadena: añadiendo digito, operador +
 // poniendo a cero o evaluando la expresión
 
-// Insertar digito 1
-boton1.onclick = () => {
-  display.innerHTML += "1";
-}
-
-// Insertar digito 2
-boton2.onclick = () => {
-  display.innerHTML += "2";
-}
-
-// Insertar simbolo de sumar
+// Insertar +
 suma.onclick = () => {
   display.innerHTML += "+";
 }
+
+// Insertar -
+resta.onclick = () => {
+  display.innerHTML += "-";
+}
+
+// Insertar *
+multiplicacion.onclick = () => {
+  display.innerHTML += "*";
+}
+
+// Insertar /
+division.onclick = () =>{
+  display.innerHTML += "/";
+}
+
+// Insertar **
+exponencial.onclick = () =>{
+  display.innerHTML += "**";
+}
+
 
 // Evaluar la expresion
 igual.onclick = () => {
