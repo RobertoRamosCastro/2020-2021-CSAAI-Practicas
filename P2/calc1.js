@@ -1,9 +1,9 @@
 // botones de la calcu
-division = document.getElementById("division")
+//division = document.getElementById("division")
 igual = document.getElementById("equal")
-suma = document.getElementById("suma")
-resta = document.getElementById("resta")
-multiplicacion = document.getElementById("multiplicacion")
+//suma = document.getElementById("suma")
+//resta = document.getElementById("resta")
+//multiplicacion = document.getElementById("multiplicacion")
 del =  document.getElementById("borrar")
 ac = document.getElementById("ac")
 
