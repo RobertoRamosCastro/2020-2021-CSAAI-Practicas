@@ -18,14 +18,14 @@ let op = document.getElementsByClassName("op");
 // bucle para recoger los botones con class boton_value
 for(i = 0; i < boton_value.length; i++){
   boton_value[i].onclick = (ev) =>{
-    valor(ev.target);
+    boton_value(ev.target);
   }
 }
 
 // bucle para recoger botones con calss op
 for(i=0; i<op.length; i++){
   op[i].onclick=(ev)=>{
-    operacion(ev.target);
+    op(ev.target);
   }
 }
 
