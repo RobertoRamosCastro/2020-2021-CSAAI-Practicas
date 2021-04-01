@@ -6,7 +6,6 @@ resta = document.getElementById("resta")
 multiplicacion = document.getElementById("multiplicacion")
 del =  document.getElementById("borrar")
 ac = document.getElementById("ac")
-result = document.getElementById("result")
 
 // array con los tipos de digitos
 let boton_value = document.getElementsByClassName("boton_value");
