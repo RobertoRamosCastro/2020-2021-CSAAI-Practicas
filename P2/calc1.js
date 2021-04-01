@@ -27,7 +27,7 @@ function operador(boton)
 // bucle para recoger botones con calss op
 for(i=0; i<op.length; i++){
   op[i].onclick=(ev)=>{
-    op(ev.target);
+    operador(ev.target);
   }
 }
 
