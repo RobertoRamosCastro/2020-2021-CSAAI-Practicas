@@ -13,9 +13,9 @@ ac = document.getElementById("botonAC")
 dot = document.getElementById("dot")
 result = document.getElementById("result")
 // array con los tipos de digitos
-let digitos = document.getElementsByClassName("cdigito");
+let digitos = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
-let operaciones = document.getElementsByClassName("operador");
+let operaciones = document.getElementsByClassName("op");
 
 // estados calcu
 const ESTADO = {
