@@ -18,15 +18,6 @@ let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
 let op = document.getElementsByClassName("op");
 
-// estados calcu
-const ESTADO = {
-  INIT: 0,
-  OP1: 1,
-  OPERATION: 2,
-  OP2_INIT: 3,
-  OP2: 4
-};
-
 // bucle para recoger los botones con class boton_value
 for(i = 0; i < boton_value.length; i++){
   boton_value[i].onclick = (ev) =>{
@@ -71,14 +62,22 @@ exponencial.onclick = () =>{
   display.innerHTML += "**";
 }
 
-
 // Evaluar la expresion
 igual.onclick = () => {
   display.innerHTML = eval(display.innerHTML);
 }
 
 // Poner a cero la expresion
-clear.onclick = () => {
+ac.onclick = () => {
   display.innerHTML = "0";
-  estado = ESTADO.INIT;
+}
+
+borrar.onclick = () =>{
+  var length = display.innerHTML.length;
+  //display.innerHTML = "0";
+  if (display.innerHTML.length > 1) {
+    display.innerHTML = display.innerHTML.slice(0,display.innerHTML.length - 1);
+  }else if (display.innerHTML.length = 1) {
+    display.innerHTML = "0";
+  }
 }
