@@ -2,11 +2,16 @@ console.log("Ejecutando JS...");
 
 
 // botones de la calcu
-display = document.getElementById("display")
-suma = document.getElementById("suma")
+division = document.getElementById("division")
 igual = document.getElementById("igual")
-clear = document.getElementById("clear")
-borrar = document.getElementById("borrar");
+suma = document.getElementById("suma")
+resta = document.getElementById("resta")
+multiplicacion = document.getElementById("multiplicacion")
+exponencial = document.getElementById("botonEXP")
+del =  document.getElementById("botonDELl")
+ac = document.getElementById("botonAC")
+dot = document.getElementById("dot")
+result = document.getElementById("result")
 // array con los tipos de digitos
 let digitos = document.getElementsByClassName("cdigito");
 // array con los tipos de operaciones
