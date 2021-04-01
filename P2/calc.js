@@ -29,11 +29,6 @@ for(i=0; i<op.length; i++){
   }
 }
 
-// Funciones de retrollamada de los botones
-// Cada vez que se aprieta un boton se actua
-// sobre la cadena: añadiendo digito, operador +
-// poniendo a cero o evaluando la expresión
-
 function digito(boton)
 {
   if (display.innerHTML=="0") {
