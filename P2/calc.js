@@ -13,9 +13,9 @@ ac = document.getElementById("botonAC")
 dot = document.getElementById("dot")
 result = document.getElementById("result")
 // array con los tipos de digitos
-let digitos = document.getElementsByClassName("boton_value");
+let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
-let operaciones = document.getElementsByClassName("op");
+let op = document.getElementsByClassName("op");
 
 // estados calcu
 const ESTADO = {
@@ -26,16 +26,16 @@ const ESTADO = {
   OP2: 4
 };
 
-// este bucle lee cada digito que se pulsa del array de arriba, dentro lleva la funcion de los digitos
-for(i = 0; i < digitos.length; i++){
-  digitos[i].onclick = (ev) =>{
+// bucle para recoger los botones con class boton_value
+for(i = 0; i < boton_value.length; i++){
+  boton_value[i].onclick = (ev) =>{
     valor(ev.target);
   }
 }
 
-// bucle identico para las operaciones dentro lleva la funcion de las operaciones
-for(i=0; i<operacion.length; i++){
-  operacion[i].onclick=(ev)=>{
+// bucle para recoger botones con calss op
+for(i=0; i<op.length; i++){
+  op[i].onclick=(ev)=>{
     operacion(ev.target);
   }
 }
