@@ -1,6 +1,3 @@
-console.log("Ejecutando JS...");
-
-
 // botones de la calcu
 division = document.getElementById("division")
 igual = document.getElementById("igual")
@@ -36,6 +33,15 @@ for(i=0; i<op.length; i++){
 // Cada vez que se aprieta un boton se actua
 // sobre la cadena: añadiendo digito, operador +
 // poniendo a cero o evaluando la expresión
+
+function digito(boton)
+{
+  if (display.innerHTML=="0") {
+    display.innerHTML = boton.value;
+  }else {
+    display.innerHTML += boton.value;
+  }
+}
 
 // Insertar +
 suma.onclick = () => {
