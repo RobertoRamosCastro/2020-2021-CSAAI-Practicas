@@ -15,6 +15,15 @@ let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
 let op = document.getElementsByClassName("op");
 
+function operador(boton)
+{
+  if (display.innerHTML=="0") {
+    display.innerHTML = boton.value;
+  }else {
+    display.innerHTML += boton.value;
+  }
+}
+
 // bucle para recoger botones con calss op
 for(i=0; i<op.length; i++){
   op[i].onclick=(ev)=>{
