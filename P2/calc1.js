@@ -15,13 +15,6 @@ let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
 let op = document.getElementsByClassName("op");
 
-// bucle para recoger los botones con class boton_value
-for(i = 0; i < boton_value.length; i++){
-  boton_value[i].onclick = (ev) =>{
-    boton_value(ev.target);
-  }
-}
-
 // bucle para recoger botones con calss op
 for(i=0; i<op.length; i++){
   op[i].onclick=(ev)=>{
@@ -37,6 +30,13 @@ function digito(boton)
     display.innerHTML += boton.value;
   }
 }
+
+// bucle para recoger los botones con class boton_value
+for(i = 0; i < boton_value.length; i++){
+    boton_value[i].onclick = (ev) =>{
+      digito(ev.target);
+    }
+  }
 
 // Insertar +
 suma.onclick = () => {
