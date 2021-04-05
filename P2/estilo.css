@@ -5,7 +5,7 @@ body{
 button{
     width: 40px;
     height: 40px;
-    background-color: rgba(66, 54, 54, 0.048);
+    background-color: white;
     color: black;
     border-color: black;
     border-style: inset;
@@ -16,7 +16,7 @@ div{
     margin-right: auto;
     margin-left: auto;
     margin-top: 200px;
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     border: solid;
     height: 250px;
     width: 245px;
@@ -29,33 +29,12 @@ div{
 }
 
 p{
-    width: 205px;
-    height: 40px;
-    background-color: rgba(66, 54, 54, 0.048);
+    width: 209px;
+    height: 25px;
+    background-color: white;
     color: black;
     border-color: black;
     border-style: inset;
     font-family:  "Times New Roman", Times, serif;
 }
 
-.boton_value{
-      color: white;
-}
-.op{
-    color: white;
-}
-.borrar{
-    color: white;
-}
-.ac{
-    color: white;
-}
-.testANS{
-    color: white;
-}
-.equal{
-    color: white;
-}
-.sqrt{
-    color: white;
-}
