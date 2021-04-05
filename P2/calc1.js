@@ -4,6 +4,7 @@ igual = document.getElementById("equal")
 //suma = document.getElementById("suma")
 //resta = document.getElementById("resta")
 //multiplicacion = document.getElementById("multiplicacion")
+sqrt = document.getElementById('sqrt')
 del =  document.getElementById("borrar")
 ac = document.getElementById("ac")
 
@@ -48,4 +49,8 @@ ac.onclick = () => {
 // Eliminar solo un dígito
 del.onclick = () => {
   display.innerHTML = display.innerHTML.slice(0,-1);
+}
+
+sqrt.onclick = () => {
+  display.innerHTML = Math.sqrt(display.innerHTML);
 }
