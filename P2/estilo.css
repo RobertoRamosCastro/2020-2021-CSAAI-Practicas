@@ -6,10 +6,9 @@ body{
     height: 40px;
     background-color: rgba(66, 54, 54, 0.048);
     color: black;
-    font-weight: bold;
-    border-color: grey;
+    border-color: black;
     border-style: ridge;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family:  "Times New Roman", Times, serif;
     border-radius: 5px 5px 5px 5px;
   }
 
@@ -26,5 +25,12 @@ body{
   }
 
   p{
-      
+    width: 200px;
+    height: 40px;
+    background-color: rgba(66, 54, 54, 0.048);
+    color: black;
+    border-color: black;
+    border-style: ridge;
+    font-family:  "Times New Roman", Times, serif;
+    border-radius: 5px 5px 5px 5px;
   }
