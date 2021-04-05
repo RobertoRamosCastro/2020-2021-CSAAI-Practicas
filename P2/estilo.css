@@ -1,14 +1,16 @@
 body{
     background-image: url(fondo.jfif);
+    background-size: 300px 300px;
   }
 
 button{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: white;
     color: black;
     border-color: black;
     border-style: inset;
+    font-size: 20px;
     font-family:  "Times New Roman", Times, serif;
 }
 
@@ -16,28 +18,19 @@ div{
     margin-right: auto;
     margin-left: auto;
     margin-top: 200px;
-    background-color: rgb(255, 255, 255);
-    border: solid;
-    height: 250px;
-    width: 245px;
-    padding-left: 20px;
-    padding-right: auto;
-    padding-bottom: auto;
-    padding-top: auto;
-    border-color: black;
-    border-style: inset;
+    background-color: rgba(55, 68, 187, 0);
+    height: 300px;
+    width: 300px;
 }
 
 p{
-    width: 209px;
-    height: 25px;
+    width: 258px;
+    height: 35px;
     background-color: white;
     color: black;
     border-color: black;
     border-style: inset;
     font-family:  "Times New Roman", Times, serif;
-}
-
-.testANS{
-    color: white;
+    text-align: right;
+    font-size: 23px;
 }

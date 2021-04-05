@@ -7,7 +7,6 @@ igual = document.getElementById("equal")
 sqrt = document.getElementById('sqrt')
 del =  document.getElementById("borrar")
 ac = document.getElementById("ac")
-
 // array con los tipos de digitos
 let boton_value = document.getElementsByClassName("boton_value");
 // array con los tipos de operaciones
@@ -22,7 +21,7 @@ function digito(boton)
   }
 }
 
-// bucle para recoger botones con calss op
+// bucle para recoger botones con class op
 for(i=0; i<op.length; i++){
     op[i].onclick=(ev)=>{
       digito(ev.target);
