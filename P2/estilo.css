@@ -1,22 +1,22 @@
 body{
     background-image: url(fondo.jfif);
   }
-  button{
+
+button{
     width: 40px;
     height: 40px;
     background-color: rgba(66, 54, 54, 0.048);
     color: black;
     border-color: black;
-    border-style: ridge;
+    border-style: inset;
     font-family:  "Times New Roman", Times, serif;
-    border-radius: 5px 5px 5px 5px;
-  }
+}
 
-  div{
+div{
     margin-right: auto;
     margin-left: auto;
     margin-top: 200px;
-    background-color: #ffffff;
+    background-color: #000;
     border: solid;
     height: 250px;
     width: 245px;
@@ -24,16 +24,38 @@ body{
     padding-right: auto;
     padding-bottom: auto;
     padding-top: auto;
-    border-radius: 10px 10px 10px 10px;
-  }
+    border-color: black;
+    border-style: inset;
+}
 
-  p{
+p{
     width: 205px;
     height: 40px;
     background-color: rgba(66, 54, 54, 0.048);
     color: black;
     border-color: black;
-    border-style: ridge;
+    border-style: inset;
     font-family:  "Times New Roman", Times, serif;
-    border-radius: 5px 5px 5px 5px;
-  }
+}
+
+.boton_value{
+      color: white;
+}
+.op{
+    color: white;
+}
+.borrar{
+    color: white;
+}
+.ac{
+    color: white;
+}
+.testANS{
+    color: white;
+}
+.equal{
+    color: white;
+}
+.sqrt{
+    color: white;
+}
