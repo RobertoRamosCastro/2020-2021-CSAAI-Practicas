@@ -16,16 +16,19 @@ body{
     margin-right: auto;
     margin-left: auto;
     margin-top: 200px;
-    background-color: #e61c3a;
+    background-color: #ffffff;
     border: solid;
-    height: 300px;
-    width: 300px;
-    padding-left: 35px;
+    height: 250px;
+    width: 245px;
+    padding-left: 20px;
+    padding-right: auto;
+    padding-bottom: auto;
+    padding-top: auto;
     border-radius: 10px 10px 10px 10px;
   }
 
   p{
-    width: 200px;
+    width: 205px;
     height: 40px;
     background-color: rgba(66, 54, 54, 0.048);
     color: black;
