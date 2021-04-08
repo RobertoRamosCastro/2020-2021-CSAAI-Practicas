@@ -19,9 +19,13 @@ ctx.beginPath();
   //-- Color de relleno del rectángulo
   ctx.fillStyle = 'blue';
 
+  // bordes delimitando el rectangulo dibujado dentro
+  //-- Cambiar el tamaño de la linea del trazo
+  ctx.lineWidth = 4;
+
   //-- Mostrar el relleno
   ctx.fill();
 
-  //-- Mostrar el trazo del rectángulo
+  //-- Mostrar el trazo del rectángulo, dibujar
   ctx.stroke();
 ctx.closePath();
