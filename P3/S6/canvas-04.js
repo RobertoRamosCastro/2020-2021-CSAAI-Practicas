@@ -3,7 +3,7 @@ console.log("Ejecutando JS...");
 const canvas = document.getElementById("canvas");
 
 //-- Definir el tamaño del convas
-canvas.width = 200;
+canvas.width = 300;
 canvas.height = 100;
 
 //-- Obtener el contexto del canvas
@@ -17,12 +17,14 @@ ctx.beginPath();
 
     //-- Línea horizontal y vertical, unidas
     ctx.moveTo(10, 80);
-    ctx.lineTo(150,80);
+    ctx.lineTo(200,80);
+    
+    ctx.moveTo(150,80);
     ctx.lineTo(150,20);
 
     ctx.strokeStyle = 'blue';
     //-- Cambiar el tamaño de la linea del trazo
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 10;
 
     //-- Dibujar el trazo
     ctx.stroke()
