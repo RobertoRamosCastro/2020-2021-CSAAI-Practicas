@@ -3,20 +3,31 @@ console.log("Ejecutando JS...");
 const canvas = document.getElementById("canvas");
 
 //-- Definir el tamaño del convas
-canvas.width = 300;
-canvas.height = 100;
+canvas.width = 500;
+canvas.height = 500;
 
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
+
+//-- Texto solido
+ctx.font = "25px Arial";
+ctx.fillStyle = 'yellow'
+ctx.fillText("Texo sólido", 200, 200);
+
+//-- Texto trazo
+ctx.strokeStyle = 'blue';
+ctx.font = "35px Arial";
+ctx.strokeText("Texto trazo", 220, 230);
 
 
 ctx.beginPath();
 
     //-- Dibujar un circulo: coordenadas x,y del centro
     //-- Radio, Angulo inicial y angulo final
+        // x,y,radio,angulo inic. angulo fin.
     ctx.arc(100, 50, 10, 0, 2 * Math.PI);
     ctx.strokeStyle = 'blue';
-    ctx.lineWidth = 3;
+    //ctx.lineWidth = 3; solo se puede usar una vez el ancho de linea
     ctx.fillStyle = 'yellow';
 
     //-- Línea horizontal
