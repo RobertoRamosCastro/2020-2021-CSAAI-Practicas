@@ -11,42 +11,53 @@ const ctx = canvas.getContext("2d");
 
 //-- Posición del elemento a animar
 let x = 0;
-let y = 0;
+let y = 10;
 
-for (i=0; i<20; i++) { 
-    for (i=0; i<20; i++) { 
-        //-- Funcion principal de animacion
-        function update() 
-        {
-        console.log("test");
-        //-- Algoritmo de animacion:
-        //-- 1) Actualizar posiciones de los elementos
-        //-- Por hacer
+//-- Velocidades del objeto, tanto x e y
+let velx = 3;
+let vely = 0.2;
 
-        //-- 2) Borrar el canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+//-- Funcion principal de animacion
+function update() 
+{
+  console.log("test");
+  //-- Algoritmo de animacion:
+  //-- 1) Actualizar posiciones de los elementos
+  
+  //-- Condicion de rebote en extremos verticales del canvas
+  if (x < 0 || x >= (canvas.width - 20) ) {
+    velx = -velx;
+  }
 
-        //-- 3) Dibujar los elementos visibles
-        ctx.beginPath();
-            ctx.rect(x, y, 20, 20);
+  //-- Condición de rebote en extremos horizontales del canvas
+  if (y <= 0 || y > 80) {
+    vely = -vely;
+  }
+  
+  //actualizar posicion
+  x = x + velx;
+  y = y + vely;
 
-            //-- Dibujar
-            ctx.fillStyle = 'red';
+  //-- 2) Borrar el canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            //-- Rellenar
-            ctx.fill();
+  //-- 3) Dibujar los elementos visibles
+  ctx.beginPath();
+    ctx.rect(x, y, 20, 20);
 
-            //-- Dibujar el trazo
-            ctx.stroke()
-        ctx.closePath();
+    //-- Dibujar
+    ctx.fillStyle = 'red';
 
-        //-- 4) Volver a ejecutar update cuando toque
-        requestAnimationFrame(update);
-        }
+    //-- Rellenar
+    ctx.fill();
 
-        //-- ¡Que empiece la función!
-        update();
-    }
+    //-- Dibujar el trazo
+    ctx.stroke()
+  ctx.closePath();
+
+  //-- 4) Volver a ejecutar update cuando toque
+  requestAnimationFrame(update);
 }
 
-
+//-- ¡Que empiece la función!
+update();
