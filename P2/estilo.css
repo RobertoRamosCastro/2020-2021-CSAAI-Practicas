@@ -17,10 +17,11 @@ button{
 div{
     margin-right: auto;
     margin-left: auto;
-    margin-top: 200px;
-    background-color: rgba(55, 68, 187, 0);
+    background-color: lightcoral;
     height: 300px;
     width: 300px;
+    padding-left: 35px;
+    padding-top: 20px;
 }
 
 p{
