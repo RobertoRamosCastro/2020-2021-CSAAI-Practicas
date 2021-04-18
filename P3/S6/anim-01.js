@@ -48,7 +48,7 @@ const ESTADO = {
 }
 //-- Variable de ESTADO
 // Arrancamos desde el estado inicial
-let estado = ESTADO.INIT;
+let estado = ESTADO.JUGANDO;
 
 //-- Funcion principal de animacion
 function update() 
@@ -341,21 +341,28 @@ function update()
   ctx.closePath();
 
   //-- 1) Actualizar posiciones de los elementos
-  if (xbola < 0 || xbola >= xcanvas) {
-    velxbola = -velxbola;
-  }
-  if (ybola < 0) {
-    velybola = -velybola;
-  }
+  if (estado == ESTADO.JUGANDO){
 
-  xbola = xbola + velxbola;
-  ybola = ybola + velybola;
-  //colisionraqueta
-  if (xbola >= xRaqueta && xbola <=(xRaqueta + 100) && ybola >= (yRaqueta - 15) && ybola <=(yRaqueta + 75)) {
-    velybola = velybola * -1;
-    velxbola = velxbola * -1;
+    if (velxbola == 0 && velybola == 0){
+      velxbola = 5;
+      velybola = -3;
+    }
+  
+    if (xbola < 0 || xbola >= xcanvas) {
+      velxbola = -velxbola;
+    }
+    if (ybola < 0) {
+      velybola = -velybola;
+    }
+  
+    xbola = xbola + velxbola;
+    ybola = ybola + velybola;
+    //colisionraqueta
+    if (xbola >= xRaqueta && xbola <=(xRaqueta + 100) && ybola >= (yRaqueta - 15) && ybola <=(yRaqueta + 75)) {
+      velybola = velybola * -1;
+      velxbola = velxbola * -1;
+    }
   }
-
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -372,9 +379,10 @@ window.onkeydown = (e) => {
     case "d":
       xRaqueta = xRaqueta + 20;
     break;
+    /*
     case " ":
       estado = ESTADO.JUGANDO;
-    break;
+    break;*/
   }
 }
 
