@@ -18,7 +18,7 @@ let ypala = 875;
 
 // Bola
 let xbola = 300;
-let ybola = 600;
+let ybola = 850;
 // Velocidades del objeto, tanto x e y
 velxbola = 3;
 velybola = -2;
@@ -379,20 +379,17 @@ window.onkeydown = (e) => {
     case "d":
       xpala = xpala + 20;
     break;
-    /*
     case " ":
       estado = ESTADO.JUGANDO;
-    break;*/
+    break;
   }
 }
 
-
-
-/*window.onkeyup = (e) => {
+window.onkeyup = (e) => {
   if (e.key == "a" || e.key == "d") {
       xRaqueta = xRaqueta;
   }
-}*/
+}
 
 //-- ¡Que empiece la función!
 update();
