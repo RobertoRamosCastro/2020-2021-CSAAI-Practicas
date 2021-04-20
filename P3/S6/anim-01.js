@@ -374,10 +374,10 @@ window.onkeydown = (e) => {
   //-- Según la tecla se hace una cosa u otra
   switch (e.key) {
     case "a":
-      xRaqueta = xRaqueta - 20;
+      xRaqueta = xpala - 20;
     break;
     case "d":
-      xRaqueta = xRaqueta + 20;
+      xRaqueta = xpala + 20;
     break;
     /*
     case " ":
