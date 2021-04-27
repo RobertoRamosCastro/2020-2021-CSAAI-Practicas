@@ -15,6 +15,9 @@ let ycanvas = 890;
 //-- Posición del elemento a animar
 let xpala = 250
 let ypala = 875;
+let anchuraraqueta = 100;
+let alturaraqueta = 25;
+let radio = 10;
 
 // Bola
 let xbola = 300;
@@ -65,6 +68,36 @@ function update()
 {
   //-- Algoritmo de animacion:
 
+  //-- 1) Actualizar posiciones de los elementos
+    if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio) && estadoraqueta == 1) {
+        velybola = velybola * -1;
+        velxbola = velxbola * 1;
+      }
+    if (xpala < 0) {
+        xpala = 0;
+    }
+    if (xpala > 500){
+        xpala = 500;
+    }
+
+    if (xbola < 15 || xbola >= xcanvas) {
+      velxbola = -velxbola;
+    }
+    if (ybola < 10) {
+      velybola = -velybola;
+    }
+      xbola = xbola + velxbola;
+      ybola = ybola + velybola;
+    if (ybola > 875){
+        estadoraqueta = 0;
+            }
+    if (ybola > 900){
+      estado = ESTADO.INIT;
+    }
+
+  //-- 2) Borrar el canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   //-- 3) Dibujar los elementos visibles
   //dibujar raqueta
   ctx.beginPath();
@@ -94,11 +127,7 @@ function update()
     }
   }
 
-  //-- 1) Actualizar posiciones de los elementos
-  
-  }
-  //-- 2) Borrar el canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
   
 
   //-- 4) Volver a ejecutar update cuando toque
