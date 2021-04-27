@@ -66,8 +66,6 @@ for (i = 0; i < columnas; i++){
 //-- Funcion principal de animacion
 function update() 
 {
-  //-- Algoritmo de animacion:
-
   //-- 1) Actualizar posiciones de los elementos
     if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio) && estadoraqueta == 1) {
         velybola = velybola * -1;
@@ -127,12 +125,10 @@ function update()
     }
   }
 
-}
-  
-
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 
+}
 
 window.onkeydown = (e) => {
   //-- Según la tecla se hace una cosa u otra
