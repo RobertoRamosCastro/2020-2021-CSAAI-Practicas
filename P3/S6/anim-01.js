@@ -23,22 +23,6 @@ let ybola = 850;
 velxbola = 3;
 velybola = -2;
 
-// Ladrillos columnas
-let c1 = 20;
-let c2 = 80;
-let c3 = 140;
-let c4 = 200;
-let c5 = 260;
-let c6 = 320;
-let c7 = 380;
-let c8 = 440;
-let c9 = 600;
-// Ladrillos filas
-let f1 = 200;
-let f2 = 150;
-let f3 = 100;
-let f4 = 50;
-
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
@@ -49,6 +33,33 @@ const ESTADO = {
 //-- Variable de ESTADO
 // Arrancamos desde el estado inicial
 let estado = ESTADO.JUGANDO;
+
+let filas = 5;
+let columnas = 9;
+var arraycolores = ['green','red','blue','gray'];
+var arraybloques = new Array(filas*columnas);
+let xinicial = 40;
+let xincremento = 60;
+let yinicial = 50;
+let yincremento = 50;
+let b = 0;
+let anchuraladrillo = 20;
+let alturaladrillo = 40;
+
+
+for (i = 0; i < filas; i++){
+  for(j = 0; j < columnas; j++){
+      var bloque = {
+          x : xinicial + i * xincremento,
+          y : yinicial + j * yincremento,
+          estado : 1,
+          color : arraycolores[Math.floor(Math.random()*4)],
+      };
+      arraybloques[b] = bloque;
+      console.log(arraybloques[b]);
+      b = b + 1;
+  }
+}
 
 //-- Funcion principal de animacion
 function update() 
@@ -73,71 +84,28 @@ function update()
     ctx.stroke()
   ctx.closePath();
 
-  let filas = 5;
-  let columnas = 9;
-  var arraycolores = ['green','red','blue','gray'];
-  var arraybloque = new.Array(filas*columnas);
-
-
-  for (i = 0; i < filas; i++){
-    for(j = 0; j < columnas; j++){
-        //R = Math.floor(Math.random() * (255));
-        //G = Math.floor(Math.random() * (100 - 50) + 50);
-        //B = Math.floor(Math.random() * (100 - 50) + 50);
-        var bloque = {
-            x : xinicial + i * xincremento,
-            y : yinicial + j * yinicial,
-            estado : 1,
-            color : arraycolores[Math.floor(Math.random()*4)],
-        };
-        arraybloques[b] = bloque;
-        console.log(arraybloques[b]);
-        b = b + 1;
-    }
-}
-
-  function dibujarladrillos(){
-    for (b = 0; b < filas*columnas; b++){
-        if (arraybloques[b].estado == 1){
-          ctx.beginPath();
-            ctx.rect(arraybloques[b].x,arraybloques[b].y,anchuraladrillo,alturaladrillo);
-            ctx.fillStyle = arraybloques[b].color;
-            ctx.fill();
-            ctx.stroke()
-          ctx.closePath();
-      }
+// dibujar ladrillos
+  for (b = 0; b < filas*columnas; b++){
+      if (arraybloques[b].estado == 1){
+        ctx.beginPath();
+          ctx.rect(arraybloques[b].x,arraybloques[b].y,anchuraladrillo,alturaladrillo);
+          ctx.fillStyle = arraybloques[b].color;
+          ctx.fill();
+          ctx.stroke()
+        ctx.closePath();
     }
   }
 
   //-- 1) Actualizar posiciones de los elementos
-  if (estado == ESTADO.JUGANDO){
-
-    if (velxbola == 0 && velybola == 0){
-      velxbola = 5;
-      velybola = -3;
-    }
   
-    if (xbola < 0 || xbola >= xcanvas) {
-      velxbola = -velxbola;
-    }
-    if (ybola < 0) {
-      velybola = -velybola;
-    }
-  
-    xbola = xbola + velxbola;
-    ybola = ybola + velybola;
-    //colisionraqueta
-    if (xbola >= xRaqueta && xbola <=(xRaqueta + 100) && ybola >= (yRaqueta - 15) && ybola <=(yRaqueta + 75)) {
-      velybola = velybola * -1;
-      velxbola = velxbola * -1;
-    }
   }
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
 
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
-}
+
 
 window.onkeydown = (e) => {
   //-- Según la tecla se hace una cosa u otra
