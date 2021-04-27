@@ -73,272 +73,41 @@ function update()
     ctx.stroke()
   ctx.closePath();
 
-  /*//dibujar ladrillos
-  for (let i = 0; i < 5; i++) {
-    ctx.beginPath();
-      ctx.rect(ci,f1,50,25);
-      ctx.fillStyle = 'blue';
-      ctx.fill();
-      ctx.stroke()
-    ctx.closePath();
-  }*/
-
-  //fila1 
-  ctx.beginPath();
-    ctx.rect(c1,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c2,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c3,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c4,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c5,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c6,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c7,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c8,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c9,f2,50,25);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
+  let filas = 5;
+  let columnas = 9;
+  var arraycolores = ['green','red','blue','gray'];
+  var arraybloque = new.Array(filas*columnas);
 
 
-    //fila2
-  ctx.beginPath();
-    ctx.rect(c1,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
+  for (i = 0; i < filas; i++){
+    for(j = 0; j < columnas; j++){
+        //R = Math.floor(Math.random() * (255));
+        //G = Math.floor(Math.random() * (100 - 50) + 50);
+        //B = Math.floor(Math.random() * (100 - 50) + 50);
+        var bloque = {
+            x : xinicial + i * xincremento,
+            y : yinicial + j * yinicial,
+            estado : 1,
+            color : arraycolores[Math.floor(Math.random()*4)],
+        };
+        arraybloques[b] = bloque;
+        console.log(arraybloques[b]);
+        b = b + 1;
+    }
+}
 
-  ctx.beginPath();
-    ctx.rect(c2,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c3,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c4,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c5,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c6,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c7,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c8,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c9,f1,50,25);
-    ctx.fillStyle = 'blue';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  //fila3
-  ctx.beginPath();
-    ctx.rect(c1,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c2,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c3,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c4,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c5,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c6,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c7,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c8,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c9,f3,50,25);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();  
-
-  //fila4 
-  ctx.beginPath();
-    ctx.rect(c1,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c2,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c3,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c4,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c5,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c6,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c7,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c8,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
-
-  ctx.beginPath();
-    ctx.rect(c9,f4,50,25);
-    ctx.fillStyle = 'yellow';
-    ctx.fill();
-    ctx.stroke()
-  ctx.closePath();
+  function dibujarladrillos(){
+    for (b = 0; b < filas*columnas; b++){
+        if (arraybloques[b].estado == 1){
+          ctx.beginPath();
+            ctx.rect(arraybloques[b].x,arraybloques[b].y,anchuraladrillo,alturaladrillo);
+            ctx.fillStyle = arraybloques[b].color;
+            ctx.fill();
+            ctx.stroke()
+          ctx.closePath();
+      }
+    }
+  }
 
   //-- 1) Actualizar posiciones de los elementos
   if (estado == ESTADO.JUGANDO){
