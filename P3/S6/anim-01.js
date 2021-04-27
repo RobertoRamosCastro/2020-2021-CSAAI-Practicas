@@ -43,12 +43,12 @@ let xincremento = 60;
 let yinicial = 50;
 let yincremento = 50;
 let b = 0;
-let anchuraladrillo = 20;
-let alturaladrillo = 40;
+let anchuraladrillo = 40;
+let alturaladrillo = 20;
 
 
-for (i = 0; i < filas; i++){
-  for(j = 0; j < columnas; j++){
+for (i = 0; i < columnas; i++){
+  for(j = 0; j < filas; j++){
       var bloque = {
           x : xinicial + i * xincremento,
           y : yinicial + j * yincremento,
@@ -56,7 +56,6 @@ for (i = 0; i < filas; i++){
           color : arraycolores[Math.floor(Math.random()*4)],
       };
       arraybloques[b] = bloque;
-      console.log(arraybloques[b]);
       b = b + 1;
   }
 }
@@ -64,7 +63,6 @@ for (i = 0; i < filas; i++){
 //-- Funcion principal de animacion
 function update() 
 {
-  console.log("test");
   //-- Algoritmo de animacion:
 
   //-- 3) Dibujar los elementos visibles
@@ -124,7 +122,7 @@ window.onkeydown = (e) => {
 
 window.onkeyup = (e) => {
   if (e.key == "a" || e.key == "d") {
-      xRaqueta = xRaqueta;
+      xpala = xpala;
   }
 }
 
