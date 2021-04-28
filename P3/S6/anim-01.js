@@ -31,9 +31,7 @@ let ybola = 850;
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
-  JUGANDO: 1,
-  WINNER: 2,
-  PERDER: 3
+  JUGANDO: 1
 }
 //-- Variable de ESTADO
 // Arrancamos desde el estado inicial
@@ -89,7 +87,7 @@ function update()
       velxbola = 5;
       velybola = -5;
     }
-    
+  
 
     //-- 1) Actualizar posiciones de los elementos
     if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio)) {
@@ -114,7 +112,6 @@ function update()
 
   if (ybola > 900){
     estado = ESTADO.INIT;
-
   }
   for (b = 0; b < filas*columnas; b++){
     if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio)
@@ -126,10 +123,12 @@ function update()
           points = points + 2;
           console.log(points);
         }
-    }
   }
   }
-
+  if(points == 4){
+    estado = ESTADO.INIT;
+  }
+  }
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
