@@ -20,6 +20,8 @@ let anchuraraqueta = 100;
 let alturaraqueta = 25;
 let radio = 10;
 
+//consts para chocar, cuando rompa un ladrillo y cuaando pierda
+
 // Bola
 let xbola = 300;
 let ybola = 850;
