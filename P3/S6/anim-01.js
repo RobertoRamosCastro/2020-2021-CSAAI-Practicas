@@ -27,9 +27,6 @@ let ybola = 850;
     velxbola = 0;
     velybola = 0;
 
-
-let VIDAS = 3;
-
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
@@ -79,13 +76,18 @@ function update()
     velybola = 0;
     xpala = 250;
     ypala = 875;
+    for (b = 0; b < filas*columnas; b++){
+          arraybloques[b].estado = 1;
+    }  
   }
+    
   if(estado == ESTADO.JUGANDO){
    
     if(velybola == 0 && velxbola == 0){
       velxbola = 5;
       velybola = -5;
     }
+    
 
     //-- 1) Actualizar posiciones de los elementos
     if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio)) {
@@ -121,8 +123,6 @@ function update()
     }
   }
   }
-
-
 
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
