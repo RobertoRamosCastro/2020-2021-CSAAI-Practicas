@@ -108,6 +108,13 @@ function update()
   if (ybola > 900){
     estado = ESTADO.INIT;
   }
+  for (b = 0; b < filas*columnas; b++){
+    if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio)
+      && ybola >= arraybloques[b].y - radio && ybola <= (arraybloques[b].y + alturaladrillo + radio) && arraybloques[b].estado == 1){
+        arraybloques[b].estado = 0;
+        velybola = velybola * (-1);
+    }
+  }
   }
 
   //-- 2) Borrar el canvas
@@ -139,13 +146,6 @@ function update()
           ctx.fill();
           ctx.stroke()
         ctx.closePath();
-    }
-  }
-
-  for (b = 0; b < filas*columnas; b++){
-    if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio && ybola >= arraybloques[b].y - radio && ybola <= (arraybloques[b].y + alturaladrillo + radio) && arraybloques[b].estado == 1)){
-        arraybloques[b].estado = 0;
-        console.log("adsa");
     }
   }
   
