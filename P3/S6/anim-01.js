@@ -35,7 +35,7 @@ const ESTADO = {
 }
 //-- Variable de ESTADO
 // Arrancamos desde el estado inicial
-let estado = ESTADO.JUGANDO;
+let estado = ESTADO.INIT;
 
 let filas = 5;
 let columnas = 9;
@@ -66,32 +66,49 @@ for (i = 0; i < columnas; i++){
 //-- Funcion principal de animacion
 function update() 
 {
-  //-- 1) Actualizar posiciones de los elementos
-    if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio) && estadoraqueta == 1) {
-        velybola = velybola * -1;
-        velxbola = velxbola * 1;
-      }
-    if (xpala < 0) {
-        xpala = 0;
-    }
-    if (xpala > 500){
-        xpala = 500;
+
+  if (estado == ESTADO.INIT)
+  {
+    xbola = 300;
+    ybola = 850;
+    velxbola = 0;
+    velybola = 0;
+    xpala = 250;
+    ypala = 875;
+  }
+  if(estado == ESTADO.JUGANDO){
+    if(velybola == 0 && velxbola == 0){
+      velxbola = 3;
+      velybola = -2;
     }
 
-    if (xbola < 15 || xbola >= xcanvas) {
-      velxbola = -velxbola;
+    //-- 1) Actualizar posiciones de los elementos
+    if (xbola >= xpala && xbola <=(xpala + anchuraraqueta + radio) && ybola >= (ypala - radio) && ybola <=(ypala + alturaraqueta + radio)) {
+      velybola = velybola * -1;
+      velxbola = velxbola * 1;
     }
-    if (ybola < 10) {
-      velybola = -velybola;
-    }
-      xbola = xbola + velxbola;
-      ybola = ybola + velybola;
-    if (ybola > 875){
-        estadoraqueta = 0;
-            }
-    if (ybola > 900){
-      estado = ESTADO.INIT;
-    }
+  if (xpala < 0) {
+      xpala = 0;
+  }
+  if (xpala > 500){
+      xpala = 500;
+  }
+
+  if (xbola < 15 || xbola >= xcanvas) {
+    velxbola = -velxbola;
+  }
+  if (ybola < 10) {
+    velybola = -velybola;
+  }
+    xbola = xbola + velxbola;
+    ybola = ybola + velybola;
+  if (ybola > 875){
+      estadoraqueta = 0;
+          }
+  if (ybola > 900){
+    estado = ESTADO.INIT;
+  }
+  }
 
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -125,6 +142,14 @@ function update()
     }
   }
 
+  for (b = 0; b < filas*columnas; b++){
+    if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio && ybola >= arraybloques[b].y - radio && ybola <= (arraybloques[b].y + alturaladrillo + radio) && arraybloques[b].estado == 1)){
+        arraybloques[b].estado = 0;
+        console.log("adsa");
+    }
+  }
+  
+
   //-- 4) Volver a ejecutar update cuando toque
   requestAnimationFrame(update);
 
@@ -133,10 +158,10 @@ function update()
 window.onkeydown = (e) => {
   //-- Según la tecla se hace una cosa u otra
   switch (e.key) {
-    case "a":
+    case "4":
       xpala = xpala - 20;
     break;
-    case "d":
+    case "6":
       xpala = xpala + 20;
     break;
     case " ":
@@ -144,6 +169,8 @@ window.onkeydown = (e) => {
     break;
   }
 }
+
+
 
 window.onkeyup = (e) => {
   if (e.key == "a" || e.key == "d") {
