@@ -22,16 +22,20 @@ let radio = 10;
 // Bola
 let xbola = 300;
 let ybola = 850;
-// Velocidades del objeto, tanto x e y
-velxbola = 3;
-velybola = -2;
+ // Velocidades del objeto, tanto x e y
+    //inicializar las velocidades
+    velxbola = 0;
+    velybola = 0;
+
+
+let VIDAS = 3;
 
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
-  SAQUE: 1,
-  JUGANDO: 2,
-  WINNER: 3,
+  JUGANDO: 1,
+  WINNER: 2,
+  PERDER: 3
 }
 //-- Variable de ESTADO
 // Arrancamos desde el estado inicial
@@ -77,9 +81,10 @@ function update()
     ypala = 875;
   }
   if(estado == ESTADO.JUGANDO){
+   
     if(velybola == 0 && velxbola == 0){
-      velxbola = 3;
-      velybola = -2;
+      velxbola = 5;
+      velybola = -5;
     }
 
     //-- 1) Actualizar posiciones de los elementos
@@ -102,11 +107,11 @@ function update()
   }
     xbola = xbola + velxbola;
     ybola = ybola + velybola;
-  if (ybola > 875){
-      estadoraqueta = 0;
-          }
+
   if (ybola > 900){
     estado = ESTADO.INIT;
+    VIDAS = VIDAS - 1;
+    console.log(VIDAS);
   }
   for (b = 0; b < filas*columnas; b++){
     if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio)
@@ -116,6 +121,8 @@ function update()
     }
   }
   }
+
+
 
   //-- 2) Borrar el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
