@@ -12,6 +12,7 @@ const ctx = canvas.getContext("2d");
 let xcanvas = 590;
 let ycanvas = 890;
 
+let points = 0;
 //-- Posición del elemento a animar
 let xpala = 250
 let ypala = 875;
@@ -76,6 +77,7 @@ function update()
     velybola = 0;
     xpala = 250;
     ypala = 875;
+    points = 0;
     for (b = 0; b < filas*columnas; b++){
           arraybloques[b].estado = 1;
     }  
@@ -112,14 +114,18 @@ function update()
 
   if (ybola > 900){
     estado = ESTADO.INIT;
-    VIDAS = VIDAS - 1;
-    console.log(VIDAS);
+
   }
   for (b = 0; b < filas*columnas; b++){
     if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio)
       && ybola >= arraybloques[b].y - radio && ybola <= (arraybloques[b].y + alturaladrillo + radio) && arraybloques[b].estado == 1){
         arraybloques[b].estado = 0;
         velybola = velybola * (-1);
+        //copiar y pegar para las demas filas
+        if(arraybloques[b].y == 250){
+          points = points + 2;
+          console.log(points);
+        }
     }
   }
   }
