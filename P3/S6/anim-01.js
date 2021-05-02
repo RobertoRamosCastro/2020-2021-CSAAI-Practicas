@@ -23,6 +23,8 @@ let radiobola = 10;
 // Sonidos, choque con paredes y romper ladrillo
 const bloquesound = new Audio("click.mp3");
 const paredsound = new Audio("what.mp3");
+const victoriasound = new Audio("click.mp3");
+const derrotasound = new Audio("what.mp3");
 
 /*
 Velocidades del objeto, tanto x e y;
@@ -116,6 +118,9 @@ function update()
 
     // Resetea cuando pierdes
     if (ybola > 900){
+      derrotasound.volume = 0.3;
+      derrotasound.currentTime = 0;
+      derrotasound.play();
       estado = ESTADO.INIT;
     }
 
@@ -137,6 +142,9 @@ function update()
 
     // Si llega a estos puntos fin de la partida
     if(points == 70){
+      victoriasound.volume = 0.3;
+      victoriasound.currentTime = 0;
+      victoriasound.play();
       estado = ESTADO.INIT;
     }
   }
