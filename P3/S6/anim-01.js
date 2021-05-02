@@ -5,9 +5,7 @@ const canvas = document.getElementById("canvas");
 // Definir el tamaño del canvas
 canvas.width = 470;
 canvas.height = 800;
-
 xcanvas = 470;
-
 
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
@@ -20,7 +18,7 @@ let tamanoXpala = 90;
 let tamanoYpala = 20;
 let anchopala = 30;
 let altopala = 30;
-let radio = 10;
+let radiobola = 10;
 
 //consts para chocar, cuando rompa un ladrillo y cuaando pierda
 
@@ -46,22 +44,17 @@ posiciones
 */
 let filas = 5;
 let columnas = 7;
-var arraycolores = ['green','red','blue','gray'];
+var arraycolores = ['green','red','blue'];
 var arraybloques = new Array(filas*columnas);
-let xinicial = 40;
-let xincremento = 60;
-let yinicial = 50;
-let yincremento = 50;
 let b = 0;
 let anchuraladrillo = 40;
 let alturaladrillo = 20;
 
-
 for (i = 0; i < columnas; i++){
   for(j = 0; j < filas; j++){
       var bloque = {
-          x : xinicial + i * xincremento,
-          y : yinicial + j * yincremento,
+          x : 40 + i * 60,
+          y : 50 + j * 50,
           estado : 1,
           color : arraycolores[Math.floor(Math.random()*4)],
       };
@@ -96,9 +89,10 @@ function update()
       velybola = -5;
     }
   
-
+    xbola = xbola + velxbola;
+    ybola = ybola + velybola;
     //-- 1) Actualizar posiciones de los elementos
-    if (xbola >= xpala && xbola <=(xpala + anchopala + radio) && ybola >= (ypala - radio) && ybola <=(ypala + altopala + radio)) {
+    if (xbola >= xpala && xbola <=(xpala + anchopala + radiobola) && ybola >= (ypala - radiobola) && ybola <=(ypala + altopala + radiobola)) {
       velybola = velybola * -1;
       velxbola = velxbola * 1;
     }
@@ -113,14 +107,14 @@ function update()
       velybola = -velybola;
     }
 
-    xbola = xbola + velxbola;
-    ybola = ybola + velybola;
+    // Resetea cuando pierdes
     if (ybola > 900){
       estado = ESTADO.INIT;
     }
+
     for (b = 0; b < filas*columnas; b++){
-      if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radio)
-        && ybola >= arraybloques[b].y - radio && ybola <= (arraybloques[b].y + alturaladrillo + radio) && arraybloques[b].estado == 1){
+      if (xbola >= arraybloques[b].x && xbola <= (arraybloques[b].x + anchuraladrillo + radiobola)
+        && ybola >= arraybloques[b].y - radiobola && ybola <= (arraybloques[b].y + alturaladrillo + radiobola) && arraybloques[b].estado == 1){
           arraybloques[b].estado = 0;
           velybola = velybola * (-1);
           //copiar y pegar para las demas filas
@@ -132,7 +126,7 @@ function update()
     }
 
     // Si llega a estos puntos fin de la partida
-    if(points == 90){
+    if(points == 70){
       estado = ESTADO.INIT;
     }
   }
@@ -141,28 +135,28 @@ function update()
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //-- 3) Dibujar los elementos visibles
-  //dibujar raqueta
+  //dibujar pala
   ctx.beginPath();
     ctx.rect(xpala,ypala,tamanoXpala,tamanoYpala);
-    ctx.fillStyle = 'rgb(255, 100, 50)';
+    ctx.fillStyle = 'white';
     ctx.fill();
     ctx.stroke()
   ctx.closePath();
 
   //dibujar bola
   ctx.beginPath();
-    ctx.arc(xbola, ybola, 10, 0, 2 * Math.PI);
-    ctx.fillStyle = 'red';
+    ctx.arc(xbola, ybola, radiobola, 0, 2 * Math.PI);
+    ctx.fillStyle = 'white';
     ctx.fill();
     ctx.stroke()
   ctx.closePath();
 
 // dibujar ladrillos
-  for (b = 0; b < filas*columnas; b++){
-      if (arraybloques[b].estado == 1){
+  for (i = 0; i < filas*columnas; i++){
+      if (arraybloques[i].estado == 1){
         ctx.beginPath();
-          ctx.rect(arraybloques[b].x,arraybloques[b].y,anchuraladrillo,alturaladrillo);
-          ctx.fillStyle = arraybloques[b].color;
+          ctx.rect(arraybloques[i].x,arraybloques[i].y,anchuraladrillo,alturaladrillo);
+          ctx.fillStyle = arraybloques[i].color;
           ctx.fill();
           ctx.stroke()
         ctx.closePath();
