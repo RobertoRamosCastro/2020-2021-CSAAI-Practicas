@@ -20,7 +20,9 @@ let anchopala = 30;
 let altopala = 30;
 let radiobola = 10;
 
-//consts para chocar, cuando rompa un ladrillo y cuaando pierda
+// Sonidos, choque con paredes y romper ladrillo
+const bloquesound = new Audio("click.mp3");
+const paredsound = new Audio("what.mp3");
 
 /*
 Velocidades del objeto, tanto x e y;
@@ -89,10 +91,12 @@ function update()
       velybola = -5;
     }
   
+    limitantex = xpala + anchopala + radiobola;
+    limitantey = ypala + altopala + radiobola;
     xbola = xbola + velxbola;
     ybola = ybola + velybola;
     //-- 1) Actualizar posiciones de los elementos
-    if (xbola >= xpala && xbola <=(xpala + anchopala + radiobola) && ybola >= (ypala - radiobola) && ybola <=(ypala + altopala + radiobola)) {
+    if (xbola >= xpala && xbola <= limitantex && ybola >= (ypala - radiobola) && ybola <= limitantey) {
       velybola = velybola * -1;
       velxbola = velxbola * 1;
     }
@@ -103,6 +107,9 @@ function update()
         xpala = 400;
     }else if (xbola < 15 || xbola >= xcanvas){
       velxbola = -velxbola;
+      paredsound.volume = 0.3;
+      paredsound.currentTime = 0;
+      paredsound.play();
     }else if (ybola < 10){
       velybola = -velybola;
     }
@@ -117,6 +124,9 @@ function update()
         && ybola >= arraybloques[b].y - radiobola && ybola <= (arraybloques[b].y + alturaladrillo + radiobola) && arraybloques[b].estado == 1){
           arraybloques[b].estado = 0;
           velybola = velybola * (-1);
+          bloquesound.volume = 0.3;
+          bloquesound.currentTime = 1.1;
+          bloquesound.play();
           //copiar y pegar para las demas filas
           if(arraybloques[b].y == 250){
             points = points + 2;
