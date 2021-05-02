@@ -22,9 +22,9 @@ let radiobola = 10;
 
 // Sonidos, choque con paredes y romper ladrillo
 const bloquesound = new Audio("click.mp3");
-const paredsound = new Audio("what.mp3");
-const victoriasound = new Audio("click.mp3");
-const derrotasound = new Audio("what.mp3");
+const paredsound = new Audio("pared.mp3");
+const victoriasound = new Audio("winner.mp3");
+const derrotasound = new Audio("perder.mp3");
 
 /*
 Velocidades del objeto, tanto x e y;
