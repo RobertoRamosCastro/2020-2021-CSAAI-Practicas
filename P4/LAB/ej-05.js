@@ -49,7 +49,16 @@ deslizador.oninput = () => {
   umbral = deslizador.value
 
   //-- Filtrar la imagen según el nuevo umbral
+  //triplicamos este for y tenemos ya para color rojo verde azul
   for (let i = 0; i < data.length; i+=4) {
+    if (data[i] > umbral)
+      data[i] = umbral;
+  }
+  for (let i = 1; i < data.length; i+=4) {// i=1 verde
+    if (data[i] > umbral)
+      data[i] = umbral;
+  }
+  for (let i = 2; i < data.length; i+=4) {//i=2 azul
     if (data[i] > umbral)
       data[i] = umbral;
   }
