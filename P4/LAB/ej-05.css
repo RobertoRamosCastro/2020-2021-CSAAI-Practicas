@@ -10,15 +10,15 @@
   float: right;
 }
 
-#rojo{
+.rojo{
   color: red;
 }
 
-#verde{
+.verde{
   color: green;
 }
 
-#azul{
+.azul{
   color: blue;
 }
 
