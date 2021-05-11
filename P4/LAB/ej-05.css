@@ -1,9 +1,29 @@
-.imagesrc {
-  border: solid;
+body{
+  background-color: black;
 }
 
-#derecha{
+#imagesrc{
+  border: solid;
+  color: white;
+}
+
+#izq{
+  float: left;
+}
+
+#der{
   float: right;
+}
+
+#images{
+  width: 1300px;
+  height: 500px;
+  margin:auto;
+}
+
+#canvas{
+  border: solid;
+  border-color: white;
 }
 
 .rojo{
@@ -16,5 +36,25 @@
 
 .azul{
   color: blue;
+}
+
+#bab{
+  font-size: medium;
+  border: groove lightcoral;
+  border-radius: 20px;
+}
+#ori{
+  font-size: medium;
+  border: groove lightcoral;
+  border-radius: 20px;
+}
+#gray{
+  font-size: medium;
+  border: groove lightcoral;
+  border-radius: 20px;
+}
+
+.numeros{
+  color: white;
 }
 

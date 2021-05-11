@@ -2,7 +2,7 @@ console.log("Ejecutando JS....")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img = document.getElementById('img');
+const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
 //-- Acceso a los 3 deslizadores
@@ -17,8 +17,8 @@ const value_B = document.getElementById('value_B');
 
 //Botones
 const gray = document.getElementById('gray');
-const original = document.getElementById('original');
-const babajo = document.getElementById('babajo');
+const original = document.getElementById('ori');
+const babajo = document.getElementById('bab');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
