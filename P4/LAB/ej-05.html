@@ -9,23 +9,40 @@
     <title>Ejemplo 5</title>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <p>Original</p>
-    <img src="perro.jpeg">
-    <p>Modificada</p>
-    <img src="perro.jpeg" id="imagesrc">
-    <p>Establece el umbral de rojo:</p>
-    <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
-    <p id="value_R">255</p>
-    <p>Establece el umbral de verde:</p>
-    <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
-    <p id="value_G">255</p>
-    <p>Establece el umbral de azul:</p>
-    <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
-    <p id="value_B">255</p>
-    <button id = "babajo">B.ABAJO</button>
-    <button id = "original">ORIGINAL</button>
-    <button id = "gray">GRAY</button>
+
+
+    <div id="images">
+        <div id="izq">
+          <h1>Imagen original</h1>
+          <img src="perro.jpeg" id="imagesrc">
+        </div>
+        <div id="der">
+          <h1>Imagen manipulada</h1>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <p id="rojo">Establece el umbral de rojo:</p>
+        <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
+        <p id="value_R">255</p>
+        <p id="verde">Establece el umbral de verde:</p>
+        <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
+        <p id="value_G">255</p>
+        <p id="azul">Establece el umbral de azul:</p>
+        <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
+        <p id="value_B">255</p>
+    </div>
+    
+    <div id="botones">
+        <button id = "babajo">B.ABAJO</button>
+        <button id = "original">ORIGINAL</button>
+        <button id = "gray">GRAY</button>
+    </div>
+    
 
 </body>
 </html>
