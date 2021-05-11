@@ -18,7 +18,7 @@ const value_B = document.getElementById('value_B');
 //Botones
 const gray = document.getElementById('gray');
 const original = document.getElementById('ori');
-const babajo = document.getElementById('bab');
+const bw = document.getElementById('bw');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -116,11 +116,41 @@ original.onclick = () => {
   value_B.innerHTML = deslizador_B.value;
 }
 
-babajo.onclick = () =>{
-  ctx.drawImage(img, 0,0);
-  ctx.translate(0,img.height);
-  ctx.scale(1,-1);
-  ctx.drawImage(img, 0, 0);
+bw.onclick = () => {
+
+  //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
+
+  //-- Obtener la imagen del canvas en pixeles
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  //-- Obtener el array con todos los píxeles
+  data = imgData.data;
+
+  //--Variables
+  var pixel = imgData.data;
+  var umbral = 110;
+  var nuevaImagen = 0;
+
+  //-- Bucle para umbralizar la imagen
+  for (let i = 0; i < data.length; i+=4) {
+
+    pixel = data[i];
+
+    //-- Si el valor guardado en 'pixel' es mayor que el umbral decidido
+    //-- lo ponemos a intensidad maxima y si no, a intensidad minima
+    if (pixel > umbral) {
+        nuevaImagen = 255;
+    } else {
+        nuevaImagen = 0;
+    }
+
+    data[i] = nuevaImagen;
+    data[i + 1] = nuevaImagen;
+    data[i + 2] = nuevaImagen;
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
 }
 
 console.log("Fin...");
