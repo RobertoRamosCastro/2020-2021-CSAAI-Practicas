@@ -5,15 +5,19 @@ const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
-//-- Acceso al deslizador
+//-- Acceso a los 3 deslizadores
 const deslizador_R = document.getElementById('deslizador_R');
 const deslizador_G = document.getElementById('deslizador_G');
 const deslizador_B = document.getElementById('deslizador_B');
 
-//-- Valor del deslizador
+//-- Valores de los deslizadores
 const value_R = document.getElementById('value_R');
 const value_G = document.getElementById('value_G');
 const value_B = document.getElementById('value_B');
+
+//Botones
+const gray = document.getElementById('gray');
+const original = document.getElementById('original');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -85,4 +89,29 @@ deslizador_B.oninput = () => {
   colors();
 }
 
+gray.onclick = () => {
+  //-- Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  //-- Obtener el array con todos los píxeles
+  let data = imgData.data
+  //-- Filtrar la imagen según el nuevo umbral
+  for (let i = 0; i < data.length; i+=4) {
+    var R = data[i];
+    var G = data[i+1];
+    var B = data[i+2];
+    var gris = (3 * R + 4 * G + B)/8;
+    gris = data[i] = data[i+1] = data[i+2];
+  }
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+}
+original.onclick = () => {
+  ctx.drawImage(img, 0,0);
+  deslizador_R.value = 255;
+  value_R.innerHTML = deslizador_R.value;
+  deslizador_G.value = 255;
+  value_G.innerHTML = deslizador_G.value;
+  deslizador_B.value = 255;
+  value_B.innerHTML = deslizador_B.value;
+}
 console.log("Fin...");
