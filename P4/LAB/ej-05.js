@@ -132,8 +132,6 @@ original.onclick = () => {
 
 if( estado == ESTADO.BYW){
   bw.onclick = () => {
-
-    //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
   
     //-- Obtener la imagen del canvas en pixeles
     imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -148,20 +146,16 @@ if( estado == ESTADO.BYW){
   
     //-- Bucle para umbralizar la imagen
     for (let i = 0; i < data.length; i+=4) {
-  
       pixel = data[i];
-  
-      //-- Si el valor guardado en 'pixel' es mayor que el umbral decidido
-      //-- lo ponemos a intensidad maxima y si no, a intensidad minima
+      //Umbralizacion
       if (pixel > umbral) {
           nuevaImagen = 255;
       } else {
           nuevaImagen = 0;
       }
-  
       data[i] = nuevaImagen;
-      data[i + 1] = nuevaImagen;
-      data[i + 2] = nuevaImagen;
+      data[i+1] = nuevaImagen;
+      data[i+2] = nuevaImagen;
     }
   
     //-- Poner la imagen modificada en el canvas
@@ -172,10 +166,10 @@ if( estado == ESTADO.BYW){
 window.onkeydown = (e) => {
   //-- Según la tecla se hace una cosa u otra
   switch (e.key) {
-    case "4":
+    case "g":
       estado = ESTADO.GRIS;
     break;
-    case "6":
+    case "b":
       estado = ESTADO.BYW;
     break;
   }
