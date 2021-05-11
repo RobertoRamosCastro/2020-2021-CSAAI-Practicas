@@ -9,39 +9,30 @@
     <title>Ejemplo 5</title>
 </head>
 <body>
+      <h1>Imagen manipulada</h1>
+      <img src="perro.jpeg" class="imagesrc" id="img">
+      <canvas id="canvas" class="imagesrc"></canvas>
 
-
-    <div id="images">
-        <div id="izq">
-          <h1>Imagen original</h1>
-          <img src="perro.jpeg" id="imagesrc">
+    <div id="derecha">  
+        <div>
+            <p class="rojo">Establece el umbral de rojo:</p>
+            <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
+            <p id="value_R" class="rojo">255</p>
+            <p class="verde">Establece el umbral de verde:</p>
+            <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
+            <p id="value_G" class="verde">255</p>
+            <p class="azul">Establece el umbral de azul:</p>
+            <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
+            <p id="value_B" class="azul">255</p>
         </div>
-        <div id="der">
-          <h1>Imagen manipulada</h1>
-          <canvas id="canvas"></canvas>
+        
+        <div id="botones">
+            <button id = "babajo">B.ABAJO</button>
+            <button id = "original">ORIGINAL</button>
+            <button id = "gray">GRAY</button>
         </div>
-      </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <p class="rojo">Establece el umbral de rojo:</p>
-        <input type="range" id="deslizador_R" min="0" max="255" value="255"/>
-        <p id="value_R" class="rojo">255</p>
-        <p class="verde">Establece el umbral de verde:</p>
-        <input type="range" id="deslizador_G" min="0" max="255" value="255"/>
-        <p id="value_G" class="verde">255</p>
-        <p class="azul">Establece el umbral de azul:</p>
-        <input type="range" id="deslizador_B" min="0" max="255" value="255"/>
-        <p id="value_B" class="azul">255</p>
     </div>
     
-    <div id="botones">
-        <button id = "babajo">B.ABAJO</button>
-        <button id = "original">ORIGINAL</button>
-        <button id = "gray">GRAY</button>
-    </div>
     
 
 </body>

@@ -2,7 +2,7 @@ console.log("Ejecutando JS....")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img = document.getElementById('imagesrc');
+const img = document.getElementById('img');
 const ctx = canvas.getContext('2d');
 
 //-- Acceso a los 3 deslizadores

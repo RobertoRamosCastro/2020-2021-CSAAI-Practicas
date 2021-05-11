@@ -1,12 +1,8 @@
-#imagesrc {
+.imagesrc {
   border: solid;
 }
 
-#izq{
-  float: left;
-}
-
-#der{
+#derecha{
   float: right;
 }
 
