@@ -15,6 +15,16 @@ const value_R = document.getElementById('value_R');
 const value_G = document.getElementById('value_G');
 const value_B = document.getElementById('value_B');
 
+//Estados de la imagen
+const ESTADO = {
+  ORIGINAL: 0,
+  GRIS: 1,
+  BYW: 2
+}
+
+// Arrancamos desde el estado inicial
+let estado = ESTADO.ORIGINAL;
+
 //Botones
 const gray = document.getElementById('gray');
 const original = document.getElementById('ori');
@@ -38,74 +48,78 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
-function colors(){
-
-  //-- Mostrar el nuevo valor del deslizador
-  value_R.innerHTML = deslizador_R.value;
-  value_G.innerHTML = deslizador_G.value;
-  value_B.innerHTML = deslizador_B.value;  
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
-  
-  //-- Obtener la imagen del canvas en pixeles
-  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data  
-  
-  //-- Obtener el umbral de los colores del desliador
-  var umbral_R = deslizador_R.value;
-  var umbral_G = deslizador_G.value;
-  var umbral_B = deslizador_B.value;
-  
-  //-- Filtrar la imagen según el nuevo umbral
-  //triplicamos este for y tenemos ya para color rojo verde azul
-  for (let i = 0; i < data.length; i+=4) {
-    if (data[i] > umbral_R)
-      data[i] = umbral_R;
+if(estado == ESTADO.ORIGINAL){
+  function colors(){
+    //-- Mostrar el nuevo valor del deslizador
+    value_R.innerHTML = deslizador_R.value;
+    value_G.innerHTML = deslizador_G.value;
+    value_B.innerHTML = deslizador_B.value;  
+    //-- Situar la imagen original en el canvas
+    //-- No se han hecho manipulaciones todavia
+    ctx.drawImage(img, 0,0);
+    
+    //-- Obtener la imagen del canvas en pixeles
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data  
+    
+    //-- Obtener el umbral de los colores del desliador
+    var umbral_R = deslizador_R.value;
+    var umbral_G = deslizador_G.value;
+    var umbral_B = deslizador_B.value;
+    
+    //-- Filtrar la imagen según el nuevo umbral
+    //triplicamos este for y tenemos ya para color rojo verde azul
+    for (let i = 0; i < data.length; i+=4) {
+      if (data[i] > umbral_R)
+        data[i] = umbral_R;
+    }
+    for (let i = 1; i < data.length; i+=4) {// i=1 verde
+        if (data[i] > umbral_G)
+        data[i] = umbral_G;
+    }
+    for (let i = 2; i < data.length; i+=4) {//i=2 azul
+      if (data[i] > umbral_B)
+        data[i] = umbral_B;
+    }
+     
+    //-- Poner la imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
   }
-  for (let i = 1; i < data.length; i+=4) {// i=1 verde
-      if (data[i] > umbral_G)
-      data[i] = umbral_G;
+  
+  
+  //-- Funcion de retrollamada de los deslizadores
+  deslizador_R.oninput = () => {
+    colors();
   }
-  for (let i = 2; i < data.length; i+=4) {//i=2 azul
-    if (data[i] > umbral_B)
-      data[i] = umbral_B;
+  deslizador_G.oninput = () => {
+    colors();
   }
-   
-  //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
+  deslizador_B.oninput = () => {
+    colors();
+  }
 }
 
-
-//-- Funcion de retrollamada de los deslizadores
-deslizador_R.oninput = () => {
-  colors();
-}
-deslizador_G.oninput = () => {
-  colors();
-}
-deslizador_B.oninput = () => {
-  colors();
-}
-
-gray.onclick = () => {
-  //-- Obtener la imagen del canvas en pixeles
-  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data
-  //-- Filtrar la imagen según el nuevo umbral
-  for (let i = 0; i < data.length; i+=4) {
-    var R = data[i];
-    var G = data[i+1];
-    var B = data[i+2];
-    var gris = (3 * R + 4 * G + B)/8;
-    gris = data[i] = data[i+1] = data[i+2];
+if( estado == ESTADO.GRIS){
+  gray.onclick = () => {
+    //-- Obtener la imagen del canvas en pixeles
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data
+    //-- Filtrar la imagen según el nuevo umbral
+    for (let i = 0; i < data.length; i+=4) {
+      var R = data[i];
+      var G = data[i+1];
+      var B = data[i+2];
+      var gris = (3 * R + 4 * G + B)/8;
+      gris = data[i] = data[i+1] = data[i+2];
+    }
+    //-- Poner la imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
   }
-  //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
 }
+
 original.onclick = () => {
   ctx.drawImage(img, 0,0);
   deslizador_R.value = 255;
@@ -116,41 +130,44 @@ original.onclick = () => {
   value_B.innerHTML = deslizador_B.value;
 }
 
-bw.onclick = () => {
+if( estad == ESTADO.BYW){
+  bw.onclick = () => {
 
-  //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
-
-  //-- Obtener la imagen del canvas en pixeles
-  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  //-- Obtener el array con todos los píxeles
-  data = imgData.data;
-
-  //--Variables
-  var pixel = imgData.data;
-  var umbral = 110;
-  var nuevaImagen = 0;
-
-  //-- Bucle para umbralizar la imagen
-  for (let i = 0; i < data.length; i+=4) {
-
-    pixel = data[i];
-
-    //-- Si el valor guardado en 'pixel' es mayor que el umbral decidido
-    //-- lo ponemos a intensidad maxima y si no, a intensidad minima
-    if (pixel > umbral) {
-        nuevaImagen = 255;
-    } else {
-        nuevaImagen = 0;
+    //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
+  
+    //-- Obtener la imagen del canvas en pixeles
+    imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  
+    //-- Obtener el array con todos los píxeles
+    data = imgData.data;
+  
+    //--Variables
+    var pixel = imgData.data;
+    var umbral = 110;
+    var nuevaImagen = 0;
+  
+    //-- Bucle para umbralizar la imagen
+    for (let i = 0; i < data.length; i+=4) {
+  
+      pixel = data[i];
+  
+      //-- Si el valor guardado en 'pixel' es mayor que el umbral decidido
+      //-- lo ponemos a intensidad maxima y si no, a intensidad minima
+      if (pixel > umbral) {
+          nuevaImagen = 255;
+      } else {
+          nuevaImagen = 0;
+      }
+  
+      data[i] = nuevaImagen;
+      data[i + 1] = nuevaImagen;
+      data[i + 2] = nuevaImagen;
     }
-
-    data[i] = nuevaImagen;
-    data[i + 1] = nuevaImagen;
-    data[i + 2] = nuevaImagen;
+  
+    //-- Poner la imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
   }
-
-  //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
 }
+
 
 console.log("Fin...");
