@@ -18,6 +18,7 @@ const value_B = document.getElementById('value_B');
 //Botones
 const gray = document.getElementById('gray');
 const original = document.getElementById('original');
+const babajo = document.getElementById('babajo');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -114,4 +115,12 @@ original.onclick = () => {
   deslizador_B.value = 255;
   value_B.innerHTML = deslizador_B.value;
 }
+
+babajo.onclick = () =>{
+  ctx.drawImage(img, 0,0);
+  ctx.translate(0,img.height);
+  ctx.scale(1,-1);
+  ctx.drawImage(img, 0, 0);
+}
+
 console.log("Fin...");
