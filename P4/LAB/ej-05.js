@@ -130,7 +130,7 @@ original.onclick = () => {
   value_B.innerHTML = deslizador_B.value;
 }
 
-if( estad == ESTADO.BYW){
+if( estado == ESTADO.BYW){
   bw.onclick = () => {
 
     //-- Para hacer esta funcion primero debemos haber pulsado el boton "Grises"
@@ -166,6 +166,18 @@ if( estad == ESTADO.BYW){
   
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
+  }
+}
+
+window.onkeydown = (e) => {
+  //-- Según la tecla se hace una cosa u otra
+  switch (e.key) {
+    case "4":
+      estado = ESTADO.GRIS;
+    break;
+    case "6":
+      estado = ESTADO.BYW;
+    break;
   }
 }
 
