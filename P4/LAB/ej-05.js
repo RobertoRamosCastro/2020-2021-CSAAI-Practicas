@@ -23,7 +23,7 @@ const ESTADO = {
 }
 
 // Arrancamos desde el estado inicial
-let estado = ESTADO.ORIGINAL;
+let estado = ESTADO.BYW;
 
 //Botones
 const gray = document.getElementById('gray');
@@ -130,7 +130,7 @@ original.onclick = () => {
   value_B.innerHTML = deslizador_B.value;
 }
 
-if( estado == ESTADO.BYW){
+if(estado == ESTADO.BYW){
   bw.onclick = () => {
   
     //-- Obtener la imagen del canvas en pixeles
@@ -157,7 +157,6 @@ if( estado == ESTADO.BYW){
       data[i+1] = nuevaImagen;
       data[i+2] = nuevaImagen;
     }
-  
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
   }
@@ -168,9 +167,11 @@ window.onkeydown = (e) => {
   switch (e.key) {
     case "g":
       estado = ESTADO.GRIS;
+      console.log(estado);
     break;
     case "b":
       estado = ESTADO.BYW;
+      console.log(estado);
     break;
   }
 }
