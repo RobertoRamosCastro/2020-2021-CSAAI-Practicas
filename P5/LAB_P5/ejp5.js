@@ -13,7 +13,7 @@ video1.width=200;
 video1.height=100;
 
 //-- Imagen de Test usada
-const TEST_IMAGE_URL = "test.png";
+const TEST_IMAGE_URL = "perro.jpeg";
 
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
