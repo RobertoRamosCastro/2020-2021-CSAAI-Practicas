@@ -29,9 +29,15 @@ btn_src_on.onclick = () => {
   //-- Reprodeucimos un vídeo, desde el comienzo
   video1.currentTime = 0;
   video1.play();
-
+  video2.currentTime = 0;
+  video2.play();
+  video3.currentTime = 0;
+  video3.play();
   //-- Y en silencio...
   video1.muted;
+  video2.muted;
+  video3.muted;
+
 
   //-- En la emisión en directo ponemos la imagen de prueba
   directo.poster = TEST_IMAGE_URL;
@@ -49,4 +55,18 @@ btn_video1.onclick = () => {
     directo.currentTime = video1.currentTime;
     directo.play();
     directo.poster=null;
+};
+btn_video2.onclick = () => {
+  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+  directo.src = video2.src;
+  directo.currentTime = video2.currentTime;
+  directo.play();
+  directo.poster=null;
+};
+btn_video3.onclick = () => {
+  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+  directo.src = video3.src;
+  directo.currentTime = video3.currentTime;
+  directo.play();
+  directo.poster=null;
 };
