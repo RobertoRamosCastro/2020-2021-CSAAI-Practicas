@@ -15,16 +15,6 @@ const value_R = document.getElementById('value_R');
 const value_G = document.getElementById('value_G');
 const value_B = document.getElementById('value_B');
 
-//Estados de la imagen
-const ESTADO = {
-  ORIGINAL: 0,
-  GRIS: 1,
-  BYW: 2
-}
-
-// Arrancamos desde el estado inicial
-let estado = ESTADO.BYW;
-
 //Botones
 const gray = document.getElementById('gray');
 const original = document.getElementById('ori');
@@ -48,7 +38,6 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
-if(estado == ESTADO.ORIGINAL){
   function colors(){
     //-- Mostrar el nuevo valor del deslizador
     value_R.innerHTML = deslizador_R.value;
@@ -99,14 +88,13 @@ if(estado == ESTADO.ORIGINAL){
   deslizador_B.oninput = () => {
     colors();
   }
-}
 
-if( estado == ESTADO.GRIS){
   gray.onclick = () => {
     //-- Obtener la imagen del canvas en pixeles
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     //-- Obtener el array con todos los píxeles
     let data = imgData.data
+    document.getElementById('sliders').style.display = 'none';
     //-- Filtrar la imagen según el nuevo umbral
     for (let i = 0; i < data.length; i+=4) {
       var R = data[i];
@@ -118,19 +106,19 @@ if( estado == ESTADO.GRIS){
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
   }
-}
 
 original.onclick = () => {
   ctx.drawImage(img, 0,0);
+  document.getElementById('sliders').style.display = 'block';
   deslizador_R.value = 255;
   value_R.innerHTML = deslizador_R.value;
   deslizador_G.value = 255;
   value_G.innerHTML = deslizador_G.value;
   deslizador_B.value = 255;
   value_B.innerHTML = deslizador_B.value;
+  
 }
 
-if(estado == ESTADO.BYW){
   bw.onclick = () => {
   
     //-- Obtener la imagen del canvas en pixeles
@@ -143,6 +131,8 @@ if(estado == ESTADO.BYW){
     var pixel = imgData.data;
     var umbral = 110;
     var nuevaImagen = 0;
+
+    document.getElementById('sliders').style.display = 'none';
   
     //-- Bucle para umbralizar la imagen
     for (let i = 0; i < data.length; i+=4) {
@@ -160,21 +150,5 @@ if(estado == ESTADO.BYW){
     //-- Poner la imagen modificada en el canvas
     ctx.putImageData(imgData, 0, 0);
   }
-}
-
-window.onkeydown = (e) => {
-  //-- Según la tecla se hace una cosa u otra
-  switch (e.key) {
-    case "g":
-      estado = ESTADO.GRIS;
-      console.log(estado);
-    break;
-    case "b":
-      estado = ESTADO.BYW;
-      console.log(estado);
-    break;
-  }
-}
-
 
 console.log("Fin...");
