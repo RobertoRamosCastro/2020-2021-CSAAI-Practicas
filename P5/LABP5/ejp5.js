@@ -1,11 +1,15 @@
 //----- Obtener elemento de video y configurarlo
 let directo = document.getElementById("directo");
 const video1 = document.getElementById("video1");
-const btn_video1 = document.getElementById("btn_video1");
 const video2 = document.getElementById("video2");
-const btn_video2 = document.getElementById("btn_video2");
-const btn_test = document.getElementById("btn_test");
-const btn_src_on = document.getElementById("btn_src_on");
+const video3 = document.getElementById("video3");
+const boton_video1 = document.getElementById("boton_video1");
+const boton_video2 = document.getElementById("boton_video2");
+const boton_video3 = document.getElementById("boton_video3");
+const boton_test = document.getElementById("boton_test");
+const boton_on = document.getElementById("boton_on");
+const boton_off = document.getElementById("boton_off");
+
 
 
 //-- Establecer las dimensiones de los vídeos
@@ -13,6 +17,10 @@ directo.width=420;
 directo.height=200;
 video1.width=200;  
 video1.height=100;
+video2.width=200;  
+video2.height=100;
+video3.width=200;  
+video3.height=100;
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "perro.jpeg";
