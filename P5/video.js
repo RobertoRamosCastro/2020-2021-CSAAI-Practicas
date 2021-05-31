@@ -21,6 +21,9 @@ video2.height=100;
 video3.width=200;  
 video3.height=100;
 
+//Variable de estado
+var estados = new Boolean(false);
+
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "perro.jpeg";
 
@@ -34,6 +37,8 @@ video3.poster = TEST_IMAGE_URL;
 
 //-- Boton de FUENTES-ON
 btn_src_on.onclick = () => {
+
+  estados = true;
  
   //-- Establecer la fuente de la cámara 1
   video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
@@ -72,32 +77,34 @@ boton_off.onclick = () => {
   video1.poster = TEST_IMAGE_URL;
   video2.poster = TEST_IMAGE_URL;
   video3.poster = TEST_IMAGE_URL;
+
+  estados = false;
 }
 
-//-- Botón de Test
-btn_test.onclick = () => {
-    directo.poster = TEST_IMAGE_URL;
-    directo.src = null;
-};
+if(estados == true){
+        //-- Botón de Test
+    btn_test.onclick = () => {
+        directo.poster = TEST_IMAGE_URL;
+        directo.src = null;
+    };
 
-//-- Botón de Selección de la cámara 1
-btn_video1.onclick = () => {
-    directo.src = video1.src;
-    directo.currentTime = video1.currentTime;
+    //-- Botón de Selección de la cámara 1
+    btn_video1.onclick = () => {
+        directo.src = video1.src;
+        directo.currentTime = video1.currentTime;
+        directo.play();
+        directo.poster=null;
+    };
+    btn_video2.onclick = () => {
+    directo.src = video2.src;
+    directo.currentTime = video2.currentTime;
     directo.play();
     directo.poster=null;
-};
-btn_video2.onclick = () => {
-  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-  directo.src = video2.src;
-  directo.currentTime = video2.currentTime;
-  directo.play();
-  directo.poster=null;
-};
-btn_video3.onclick = () => {
-  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-  directo.src = video3.src;
-  directo.currentTime = video3.currentTime;
-  directo.play();
-  directo.poster=null;
-};
+    };
+    btn_video3.onclick = () => {
+    directo.src = video3.src;
+    directo.currentTime = video3.currentTime;
+    directo.play();
+    directo.poster=null;
+    };
+}

@@ -1,0 +1,12 @@
+body{
+    background-color: aliceblue;
+}
+#titulo{
+    font-weight: bold;
+    margin-left: 460px;
+    margin-top: 50px;
+}
+
+#caja{
+    margin-left: 370px;
+}
