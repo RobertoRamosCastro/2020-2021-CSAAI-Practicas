@@ -3,13 +3,12 @@ let directo = document.getElementById("directo");
 const video1 = document.getElementById("video1");
 const video2 = document.getElementById("video2");
 const video3 = document.getElementById("video3");
-const boton_video1 = document.getElementById("boton_video1");
-const boton_video2 = document.getElementById("boton_video2");
-const boton_video3 = document.getElementById("boton_video3");
-const boton_test = document.getElementById("boton_test");
-const boton_on = document.getElementById("boton_on");
-const boton_off = document.getElementById("boton_off");
-
+const boton_video1 = document.getElementById("btn_video1");
+const boton_video2 = document.getElementById("btn_video2");
+const boton_video3 = document.getElementById("btn_video3");
+const boton_on = document.getElementById("btn_src_on");
+const boton_off = document.getElementById("btn_src_off");
+const btn_test = document.getElementById("btn_test");
 
 
 //-- Establecer las dimensiones de los vídeos
@@ -29,12 +28,17 @@ const TEST_IMAGE_URL = "perro.jpeg";
 //-- ha arrancado
 directo.poster = TEST_IMAGE_URL;
 video1.poster = TEST_IMAGE_URL;
+video2.poster = TEST_IMAGE_URL;
+video3.poster = TEST_IMAGE_URL;
+
 
 //-- Boton de FUENTES-ON
 btn_src_on.onclick = () => {
  
   //-- Establecer la fuente de la cámara 1
   video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
 
   //-- Reprodeucimos un vídeo, desde el comienzo
   video1.currentTime = 0;
@@ -48,10 +52,27 @@ btn_src_on.onclick = () => {
   video2.muted;
   video3.muted;
 
-
   //-- En la emisión en directo ponemos la imagen de prueba
   directo.poster = TEST_IMAGE_URL;
 };
+
+boton_off.onclick = () => {
+
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+  video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+  video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
+  
+  directo.poster = TEST_IMAGE_URL;
+  
+  directo.src = null;
+  video1.currentTime = 0;
+  video2.currentTime = 0;
+  video3.currentTime = 0;
+  
+  video1.poster = TEST_IMAGE_URL;
+  video2.poster = TEST_IMAGE_URL;
+  video3.poster = TEST_IMAGE_URL;
+}
 
 //-- Botón de Test
 btn_test.onclick = () => {
