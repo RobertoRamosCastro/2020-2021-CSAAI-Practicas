@@ -1,13 +1,22 @@
 body{
     background-color: aliceblue;
 }
-#titulo{
-    font-weight: bold;
-    margin-left: 460px;
-    margin-top: 50px;
-}
 
 #caja{
     margin-left: 670px;
     margin-top: 150px;
+}
+
+#caja2{
+    margin-left: 100px;
+    margin-top: 50px;
+    background-color: #555555;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.5);
 }
