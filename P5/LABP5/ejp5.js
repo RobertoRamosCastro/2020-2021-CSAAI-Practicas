@@ -2,6 +2,8 @@
 let directo = document.getElementById("directo");
 const video1 = document.getElementById("video1");
 const btn_video1 = document.getElementById("btn_video1");
+const video2 = document.getElementById("video2");
+const btn_video2 = document.getElementById("btn_video2");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
 
