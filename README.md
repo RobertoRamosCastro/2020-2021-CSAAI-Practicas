@@ -3,7 +3,7 @@ Mis prácticas de la asignatura Construcción de Servicios y Aplicaciones Audiov
 
 P1 --> CV: https://rober2017urjc.github.io/2020-2021-CSAAI-Practicas/P1/
 
-P2 --> CALCULADORA: https://rober2017urjc.github.io/2020-2021-CSAAI-Practicas/P2/calculadora.html
+P2 --> CALCULADORA: https://rober2017urjc.github.io/2020-2021-CSAAI-Practicas/P2/
 
 P3 --> ROMPER MUROS: https://rober2017urjc.github.io/2020-2021-CSAAI-Practicas/P3/
 
